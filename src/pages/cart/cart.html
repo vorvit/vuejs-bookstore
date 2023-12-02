@@ -1,0 +1,53 @@
+<div class="wrapper">
+  <TopNavbar />
+  <div class="container">
+    <main>
+      <div class="py-5 text-center">
+        <h1>Корзина</h1>
+        <p class="lead"></p>
+      </div>
+      <div class="row g-5">
+        <div class="col-md-5 col-lg-12 order-md-last">
+          <h4 class="d-flex justify-content-between align-items-center mb-3">
+            <span class="text-primary">Ваш заказ</span>
+            <span class="badge bg-primary rounded-pill">{{count}}</span>
+          </h4>
+          <ul class="list-group mb-3">
+            <li class="list-group-item d-flex justify-content-between lh-sm" v-for="item in contents">
+              <div>
+                <h6 class="my-0">{{item.title}}</h6>
+                <small class="text-muted">{{item.author}}</small>
+              </div>
+              <span class="text-muted"><span v-if="item.quantity > 1">{{item.quantity}}x</span> {{item.currency}}{{item.price}}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between bg-light">
+              <div class="text-success">
+                <h6 class="my-0">Код для скидки</h6>
+                <small>{{promo.code}}</small>
+              </div>
+              <span class="text-success">−{{currency.symbol}}{{promo.value}}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              <span>Всего ({{currency.name}})</span>
+              <strong>{{currency.symbol}}{{total}}</strong>
+            </li>
+          </ul>
+          <form class="card p-2">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Promo code">
+              <button type="submit" class="btn btn-secondary">Применить</button>
+            </div>
+          </form>
+        </div>
+       </div>
+    </main>
+  </div>
+  <Footer />
+  <div class="parallax__layer parallax__layer--3">
+    <div id="stars" class="top-stars">&nbsp;</div>
+  </div>
+  <div class="parallax__layer parallax__layer--2"></div>
+  <div class="parallax__layer parallax__layer--2"><div id="clouds" class="top-clouds">&nbsp;</div></div>
+  <div class="parallax__layer parallax__layer--2" style="z-index: 1000"></div>
+  <div class="parallax__layer parallax__layer--1"></div>
+</div>
