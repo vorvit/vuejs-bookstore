@@ -20,7 +20,7 @@ export const useCatalog = defineStore('catalog-store', {
   actions: {
     async fetchNewArrivals() {
       this.fetching = true;
-      const response = await fetch('/data/mif-catalog.json');
+      const response = await fetch('./data/mif-catalog.json');
       try {
         const result = await response.json();
         this.newArrivals = result.books;
